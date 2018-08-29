@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangkaihua.myblog.mapper.TbMeMapper">
+  <resultMap id="BaseResultMap" type="com.wangkaihua.myblog.entity.TbMe">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="live_city" jdbcType="VARCHAR" property="liveCity" />
+    <result column="Occupation" jdbcType="VARCHAR" property="occupation" />
+    <result column="net_name" jdbcType="VARCHAR" property="netName" />
+    <result column="profile" jdbcType="VARCHAR" property="profile" />
+    <result column="head_img" jdbcType="VARCHAR" property="headImg" />
+    <result column="weixin_img" jdbcType="VARCHAR" property="weixinImg" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, email, live_city, Occupation, net_name, profile, head_img, weixin_img
+  </sql>
+  <select id="selectByExample" parameterType="com.wangkaihua.myblog.entity.TbMeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_me
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_me
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_me
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wangkaihua.myblog.entity.TbMeExample">
+    delete from tb_me
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wangkaihua.myblog.entity.TbMe">
+    insert into tb_me (id, name, email, 
+      live_city, Occupation, net_name, 
+      profile, head_img, weixin_img
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{liveCity,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, #{netName,jdbcType=VARCHAR}, 
+      #{profile,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}, #{weixinImg,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wangkaihua.myblog.entity.TbMe">
+    insert into tb_me
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="liveCity != null">
+        live_city,
+      </if>
+      <if test="occupation != null">
+        Occupation,
+      </if>
+      <if test="netName != null">
+        net_name,
+      </if>
+      <if test="profile != null">
+        profile,
+      </if>
+      <if test="headImg != null">
+        head_img,
+      </if>
+      <if test="weixinImg != null">
+        weixin_img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="liveCity != null">
+        #{liveCity,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="netName != null">
+        #{netName,jdbcType=VARCHAR},
+      </if>
+      <if test="profile != null">
+        #{profile,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null">
+        #{headImg,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinImg != null">
+        #{weixinImg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wangkaihua.myblog.entity.TbMeExample" resultType="java.lang.Long">
+    select count(*) from tb_me
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_me
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.liveCity != null">
+        live_city = #{record.liveCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.occupation != null">
+        Occupation = #{record.occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.netName != null">
+        net_name = #{record.netName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.profile != null">
+        profile = #{record.profile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.headImg != null">
+        head_img = #{record.headImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weixinImg != null">
+        weixin_img = #{record.weixinImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_me
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      live_city = #{record.liveCity,jdbcType=VARCHAR},
+      Occupation = #{record.occupation,jdbcType=VARCHAR},
+      net_name = #{record.netName,jdbcType=VARCHAR},
+      profile = #{record.profile,jdbcType=VARCHAR},
+      head_img = #{record.headImg,jdbcType=VARCHAR},
+      weixin_img = #{record.weixinImg,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wangkaihua.myblog.entity.TbMe">
+    update tb_me
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="liveCity != null">
+        live_city = #{liveCity,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        Occupation = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="netName != null">
+        net_name = #{netName,jdbcType=VARCHAR},
+      </if>
+      <if test="profile != null">
+        profile = #{profile,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null">
+        head_img = #{headImg,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinImg != null">
+        weixin_img = #{weixinImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wangkaihua.myblog.entity.TbMe">
+    update tb_me
+    set name = #{name,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      live_city = #{liveCity,jdbcType=VARCHAR},
+      Occupation = #{occupation,jdbcType=VARCHAR},
+      net_name = #{netName,jdbcType=VARCHAR},
+      profile = #{profile,jdbcType=VARCHAR},
+      head_img = #{headImg,jdbcType=VARCHAR},
+      weixin_img = #{weixinImg,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
