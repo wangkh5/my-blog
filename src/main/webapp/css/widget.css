@@ -1,0 +1,67 @@
+.widget-common{
+    background-color: #ffffff;
+    padding: 1px 20px 10px;
+    margin-bottom: 10px;
+}
+
+.widget-common h4{
+    margin-top: 10px;
+    border-bottom: 1px solid #2b542c;
+    line-height: 25px;
+
+}
+
+.d_tags a{
+    color: #fff;
+    display: inline-block;
+    height: 30px;
+    width: 140px;
+    background-color: #7266ba;
+    padding: 3px ;
+    border: 2px solid #ffffff;
+    text-align: center;
+    opacity: .9;
+}
+
+.d_tags a:hover {
+    color: #fff;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    opacity: 1;
+}
+
+.d_tags a:nth-child(9n) {
+    background-color: #4a4a4a
+}
+
+.d_tags a:nth-child(9n+1) {
+    background-color: #15a287
+}
+
+.d_tags a:nth-child(9n+2) {
+    background-color: #5cb85c
+}
+
+.d_tags a:nth-child(9n+3) {
+    background-color: #d9534f
+}
+
+.d_tags a:nth-child(9n+4) {
+    background-color: #567e95
+}
+
+.d_tags a:nth-child(9n+5) {
+    background-color: #b433ff
+}
+
+.d_tags a:nth-child(9n+6) {
+    background-color: #00a67c
+}
+
+.d_tags a:nth-child(9n+7) {
+    background-color: #b37333
+}
+
+.d_tags a:nth-child(9n+8) {
+    background-color: #f60
+}

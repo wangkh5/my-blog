@@ -1,0 +1,10 @@
+#blog-bottom{
+    width: 100%;
+    height: 80px;
+    background-color: #333333;
+    color: #AAAAAA;
+    line-height: 80px;
+}
+#blog-bottom a{
+    color: #AAAAAA;
+}

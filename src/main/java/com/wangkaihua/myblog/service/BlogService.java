@@ -1,5 +1,6 @@
 package com.wangkaihua.myblog.service;
 
+import com.wangkaihua.myblog.common.PageResult;
 import com.wangkaihua.myblog.entity.TbBlog;
 
 import java.util.List;
@@ -11,4 +12,12 @@ import java.util.List;
 public interface BlogService {
 
     List<TbBlog> findAll();
+
+    void add(TbBlog blog);
+
+    void delete(int[] ids);
+
+    TbBlog findOne(int id);
+
+    PageResult findPage(int pageNum, int pageSize);
 }
