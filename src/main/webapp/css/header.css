@@ -1,21 +1,132 @@
-#blog-nav{
-    border-radius: 0px;
-    /*background-color: #443232;*/
-}
-.navbar{
-    border: 0px;
+#header{
+    /*height: 210px;*/
+    padding-top: 50px;
 }
 
-#navbar a{
+#header .site-brand .site-title {
+    display: inline-block;
+    /*line-height: 37px;*/
+    height: 37px;
+    /*padding: 0 1rem;*/
+    /*transition: padding .3s ease-out;*/
+}
+
+#header .site-brand .site-title a {
+    color: #266097;
+    font: 700 3rem Lora-Bold;
+    /*transition: 0.3s;*/
+}
+
+#header .site-brand .site-description {
+    margin: 0.5em 0 0.25em;
+    font: 18px Lora;
+    color: #bbb;
+}
+
+#header .navbar {
+    margin-bottom: 0px;
+}
+
+#header .site-nav{
+    float: none;
+    display: inline-block;
+}
+
+/*如果要修改bootstrap导航条背景色，建议全复制过来自定义名称就行修改*/
+.navbar-blog {
+    /*background-color: #f8f8f8;*/
+    /*border-color: #e7e7e7;*/
+}
+.navbar-blog .navbar-brand {
+    color: #266097;
+}
+.navbar-blog .navbar-brand:hover,
+.navbar-blog .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
+.navbar-blog .navbar-text {
+    color: #266097;
+}
+.navbar-blog .navbar-nav > li > a {
     font-size: 16px;
-    color: #ffffff;
+    color: #266097;
 }
-
-ul.nav.navbar-nav li a:hover, ul.nav.navbar-nav li a:active {
-    background-color: #5F9EA0 !important;
-    color: #fff;
+.navbar-blog .navbar-nav > li > a:hover,
+.navbar-blog .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
 }
-
-body a:hover {
-    text-decoration: none;
+.navbar-blog .navbar-nav > .active > a,
+.navbar-blog .navbar-nav > .active > a:hover,
+.navbar-blog .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+.navbar-blog .navbar-nav > .disabled > a,
+.navbar-blog .navbar-nav > .disabled > a:hover,
+.navbar-blog .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+.navbar-blog .navbar-toggle {
+    border-color: #ddd;
+}
+.navbar-blog .navbar-toggle:hover,
+.navbar-blog .navbar-toggle:focus {
+    background-color: #ddd;
+}
+.navbar-blog .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+.navbar-blog .navbar-collapse,
+.navbar-blog .navbar-form {
+    border-color: #e7e7e7;
+}
+.navbar-blog .navbar-nav > .open > a,
+.navbar-blog .navbar-nav > .open > a:hover,
+.navbar-blog .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+@media (max-width: 767px) {
+    .navbar-blog .navbar-nav .open .dropdown-menu > li > a {
+        color: #266097;
+    }
+    .navbar-blog .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-blog .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #333;
+        background-color: transparent;
+    }
+    .navbar-blog .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-blog .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-blog .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #555;
+        background-color: #e7e7e7;
+    }
+    .navbar-blog .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-blog .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-blog .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #ccc;
+        background-color: transparent;
+    }
+}
+.navbar-blog .navbar-link {
+    color: #266097;
+}
+.navbar-blog .navbar-link:hover {
+    color: #333;
+}
+.navbar-blog .btn-link {
+    color: #266097;
+}
+.navbar-blog .btn-link:hover,
+.navbar-blog .btn-link:focus {
+    color: #333;
+}
+.navbar-blog .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-blog .btn-link:hover,
+.navbar-blog .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-blog .btn-link:focus {
+    color: #ccc;
 }
