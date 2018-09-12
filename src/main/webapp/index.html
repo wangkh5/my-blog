@@ -26,37 +26,39 @@
     <!--angularJs-->
     <script src="lib/angularjs/angular.min.js"></script>
     <!--angularJs-分页组件 -->
-    <!--<link rel="stylesheet" href="lib/angularjs/pagination.css">-->
-    <!--<script src="lib/angularjs/pagination.js"></script>-->
-
+    <script src="lib/angularjs/pagination-customer.js"></script>
+    <link rel="stylesheet" href="lib/angularjs/pagination-customer.css">
     <!--自定义css-->
-    <link rel="stylesheet" href="css/articleList.css">
+    <link rel="stylesheet" href="css/article.css">
     <link rel="stylesheet" href="css/common.css">
-    <!--<link rel="stylesheet" href="css/footer.css">-->
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
     <!--<link rel="stylesheet" href="css/index.css">-->
     <!--<link rel="stylesheet" href="css/widget.css">-->
 
-    <!--&lt;!&ndash;自定义的angularjs&ndash;&gt;-->
-    <!--<script src="js/base_pagination.js"></script>-->
-    <!--<script src="js/controller/baseController.js"></script>-->
-    <!--<script src="js/service/categoryService.js"></script>-->
-    <!--<script src="js/controller/categoryController.js"></script>-->
-    <!--<script src="js/service/blogService.js"></script>-->
-    <!--<script src="js/controller/blogController.js"></script>-->
+    <!--自定义的angularjs-->
+    <script src="js/base_pagination.js"></script>
+    <script src="js/controller/baseController.js"></script>
+    <script src="js/service/categoryService.js"></script>
+    <script src="js/controller/categoryController.js"></script>
+    <script src="js/service/blogService.js"></script>
+    <script src="js/controller/blogController.js"></script>
+
 
   </head>
-  <body ng-app="">
-    <div class="container center">
-      <!--引入公共页面头部-->
-      <div ng-include="'header.html'"></div>
+  <body ng-app="blog" ng-controller="blogController" ng-init="reloadList();initCategoryName()">
+    <div class="main">
+      <div class="container">
+        <!--引入公共页面头部-->
+        <div ng-include="'header.html'"></div>
 
-      <!--引入博文列表-->
-      <div ng-include="'articleList.html'"></div>
+        <!--引入博文列表-->
+        <div ng-include="'articleList.html'"></div>
 
 
-      <!--引入公共页面底部-->
-      <!--<div ng-include="'footer.html'"></div>-->
+        <!--引入公共页面底部-->
+        <div ng-include="'footer.html'"></div>
+      </div>
     </div>
   </body>
 </html>

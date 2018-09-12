@@ -1,6 +1,44 @@
-<!-页面底部--->
-<footer id="blog-bottom" class="text-center">
-    © 2018
-    <a rel="#" target="_blank" href="http://www.wangkaihua.com:8081/admin/index.html">王凯华 个人博客</a>
-    <a rel="#" target="_blank" href="http://www.miitbeian.gov.cn">豫ICP备xxxxxxxxx号-1</a>
-</footer>
+<script>
+    $(function(){
+        $(".back-to-top").css("display","none");
+
+        //兼容写法：根据 body 的 overflow-y 属性判断
+        var top = $("body").css("overflow-y");
+        if(top == 'visible')
+            $(window).scroll(function(){
+                var ins = $(document).scrollTop();
+                goTop(ins);
+            });
+        else
+            $("body").scroll(function(){
+                var ins = $("body").scrollTop();
+                goTop(ins);
+            });
+
+        function goTop(ins){
+            if(ins > 30)
+                $(".back-to-top").css("display","block");
+            else
+                $(".back-to-top").css("display","none");
+        }
+    })
+
+    //点击【返回顶部】
+    $(".back-to-top").click(function(){
+        $(".back-to-top").css("display","none");
+        $(document).scrollTop(0);
+    })
+</script>
+
+<p data-v-0075194d="" class="site-info text-center">
+    <!--博客已运行184天10小时45分钟24秒-->
+    <br>
+    WKH( <a href="https://github.com/">王凯华</a> ).
+</p>
+
+<div class="back-to-top">
+    <spa>
+        <i class="iconfont icon-60"></i>
+        <!--79%-->
+    </spa>
+</div>

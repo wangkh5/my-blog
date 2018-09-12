@@ -31,13 +31,13 @@
 
         <!--markdown编辑器初始化配置-->
         $(function() {
-            blogEditormd = editormd("content-editormd", {
+            blogEditormd = editormd("content-markdown", {
             width    : "100%",
             //                autoHeight : true,
             height:500,
             syncScrolling : "single",
             path    : "/lib/editor.md/lib/",
-    //        saveHTMLToTextarea : true, // 保存HTML到Textarea
+            saveHTMLToTextarea : true, // 保存HTML到Textarea
             emoji: true,//emoji表情，默认关闭ss
             });
         });
@@ -75,10 +75,9 @@
             </div>
 
             <!--markdown编辑器-->
-            <div id="content-editormd" class="form-group">
+            <div id="content-markdown" class="form-group">
                 <!--textarea标签中间不能有换行会有乱码-->
-                <textarea style="display:none;" class="form-control" id="content-editormd-markdown-doc"
-                          name="content-editormd-markdown-doc">{{entity.content}}</textarea>
+                <textarea style="display:none;" >{{entity.content}}</textarea>
             </div>
         </div>
         <div class="box-footer">

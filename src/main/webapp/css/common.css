@@ -36,8 +36,11 @@ body{
     }
 }
 
-.center{
+.main{
     background-color: #FFFFFF;
+    max-width: 1170px;
+    /* min-height: 100vh; */
+    margin: 0 auto;
 }
 
 a{

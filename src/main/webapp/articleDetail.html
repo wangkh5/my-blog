@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <title>王凯华个人博客 - 一个隐形贫困码农的个人博客网站</title>
+    <meta name="description" content="一个隐形贫困码农的个人博客网站。" />
+    <meta name="keywords" content="个人博客,博客,王凯华,个人网站" />
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="lib/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="lib/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--angularJs-->
+    <script src="lib/angularjs/angular.min.js"></script>
+
+    <!--自定义css-->
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+
+    <!--自定义的angularjs-->
+    <script src="js/base.js"></script>
+    <script src="js/controller/baseController.js"></script>
+    <script src="js/service/categoryService.js"></script>
+    <script src="js/controller/categoryController.js"></script>
+    <script src="js/service/blogService.js"></script>
+    <script src="js/controller/blogController.js"></script>
+
+    <!--editormd-->
+    <link rel="stylesheet" href="lib/editor.md/css/editormd.preview.css">
+    <link rel="stylesheet" href="lib/editor.md/css/editormd.min.css">
+
+    <script src="lib/editor.md/lib/marked.min.js"></script>
+    <script src="lib/editor.md/lib/prettify.min.js"></script>
+    <script src="lib/editor.md/lib/raphael.min.js"></script>
+    <script src="lib/editor.md/lib/underscore.min.js"></script>
+    <script src="lib/editor.md/lib/sequence-diagram.min.js"></script>
+    <script src="lib/editor.md/lib/flowchart.min.js"></script>
+    <script src="lib/editor.md/lib/jquery.flowchart.min.js"></script>
+    <script src="lib/editor.md/editormd.js"></script>
+
+</head>
+<body ng-app="blog" ng-controller="blogController" ng-init="findOne();loadMarkdownContent()">
+    <div class="main">
+        <div class="container">
+            <!--引入公共页面头部-->
+            <div ng-include="'header.html'"></div>
+
+            <div>
+                <div class="post text-center">
+                    <h3 class="article-title">
+                        <a href="#" class="">
+                            <span>{{entity.title}}</span>
+                        </a>
+                    </h3>
+                    <div class="article-top-meta">
+                        <span>发布 :<a href="#" class="">2018-09-11</a></span>
+                        <span>分类 :<a href="#" class="">webpack4 系列教程</a></span>
+                        <span>浏览 : 16</span>
+                    </div>
+                    <div id="" class="article-content">
+                        <div id="content-markdown" >
+                            <textarea  style="display:none;"></textarea>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <div class="article-meta pull-left">
+                            <span>
+                                <i class="iconfont icon-06tags"></i> 标签: #
+                                <span class="span--tag"><a href="#" class="">webpack</a></span>
+                                <span class="span--tag"><a href="#" class="">图像处理</a></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--引入公共页面底部-->
+            <div ng-include="'footer.html'"></div>
+        </div>
+    </div>
+</body>
+</html>

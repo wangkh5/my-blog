@@ -1,115 +1,42 @@
 <!--内容开始-->
-<div id="article-list" class="text-center">
-    <div class="post">
-        <h3 class="article-title">
-            <a href="#" class="">
-                <span>个人博客全新UI：我心中你最美</span>
-            </a>
-        </h3>
-        <div class="article-top-meta">
-        <span>
-            <a href="#" class=""> 2018-09-09</a>
-        </span>
-        </div>
-        <div class="article-content">
-            <div class="markdown-body">
-                不知道你是否也有想过完全用自己的代码实现自己的个人博客？定制专属 UI、定制专属逻辑、在
-                信息爆炸的时代真正地沉淀下属于自己的东西。
-            </div>
-        </div>
-        <div class="article-footer">
-            <div class="article-meta pull-left">
-            <span>
-              <i class="iconfont icon-tag"></i>
-                分类:
-              <a href="#" class="">网站搭建与运营</a>
-            </span>
-                <span>
-              <i class="iconfont icon-06tags"></i>
-                标签: #
-            </span>
-            </div>
-            <div class="article-meta pull-right">
-            <span>
-              <i class="iconfont icon-view"></i>
-                浏览: 75
-            </span>
-            </div>
-        </div>
+<div class="post text-center" ng-repeat="entity in list">
+    <h3 class="article-title">
+        <a href="/articleDetail.html#?id={{entity.id}}" class="">
+            <span>{{entity.title}}</span>
+        </a>
+    </h3>
+    <div class="article-top-meta">
+    <span>
+        <a href="#" class="">{{entity.updateTime | date:'yyyy-MM-dd' }}</a>
+    </span>
     </div>
-    <div class="post">
-        <h3 class="article-title">
-            <a href="#" class="">
-                <span>个人博客全新UI：我心中你最美</span>
-            </a>
-        </h3>
-        <div class="article-top-meta">
-        <span>
-            <a href="#" class=""> 2018-09-09</a>
-        </span>
-        </div>
-        <div class="article-content">
-            <div class="markdown-body">
-                不知道你是否也有想过完全用自己的代码实现自己的个人博客？定制专属 UI、定制专属逻辑、在
-                信息爆炸的时代真正地沉淀下属于自己的东西。
-            </div>
-        </div>
-        <div class="article-footer">
-            <div class="article-meta pull-left">
-            <span>
-              <i class="iconfont icon-tag"></i>
-                分类:
-              <a href="#" class="">网站搭建与运营</a>
-            </span>
-                <span>
-              <i class="iconfont icon-06tags"></i>
-                标签: #
-            </span>
-            </div>
-            <div class="article-meta pull-right">
-            <span>
-              <i class="iconfont icon-view"></i>
-                浏览: 75
-            </span>
-            </div>
-        </div>
+    <div id="" class="article-content">
+        <textarea readonly>{{entity.content}}</textarea>
     </div>
-    <div class="post">
-        <h3 class="article-title">
-            <a href="#" class="">
-                <span>个人博客全新UI：我心中你最美</span>
-            </a>
-        </h3>
-        <div class="article-top-meta">
-        <span>
-            <a href="#" class=""> 2018-09-09</a>
-        </span>
-        </div>
-        <div class="article-content">
-            <div class="markdown-body">
-                不知道你是否也有想过完全用自己的代码实现自己的个人博客？定制专属 UI、定制专属逻辑、在
-                信息爆炸的时代真正地沉淀下属于自己的东西。
-            </div>
-        </div>
-        <div class="article-footer">
-            <div class="article-meta pull-left">
-            <span>
-              <i class="iconfont icon-tag"></i>
-                分类:
-              <a href="#" class="">网站搭建与运营</a>
+    <div class="article-footer">
+        <div class="article-meta pull-left">
+            <span><i class="iconfont icon-tag"></i>
+                分类:<a href="#" class="">{{categoryNameList[entity.categoryId]}}</a>
             </span>
-                <span>
-              <i class="iconfont icon-06tags"></i>
-                标签: #
+            <span><i class="iconfont icon-06tags"></i>
+            标签: #<span class="span--tag"><a href="" class="">设计模式</a></span>
             </span>
-            </div>
-            <div class="article-meta pull-right">
+        </div>
+        <div class="article-meta pull-right">
             <span>
               <i class="iconfont icon-view"></i>
-                浏览: 75
+                浏览: {{entity.hits}}
             </span>
-            </div>
         </div>
     </div>
 </div>
 <!--页面内容结束-->
+<!-- 分页 -->
+<tm-pagination conf="paginationConf"></tm-pagination>
+
+<!--<nav aria-label="...">-->
+    <!--<ul class="pager">-->
+        <!--<li><a href="#">Previous</a></li>-->
+        <!--<li><a href="#">Next</a></li>-->
+    <!--</ul>-->
+<!--</nav>-->

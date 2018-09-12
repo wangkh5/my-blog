@@ -14,6 +14,7 @@ app.controller('blogController',function ($scope,$controller,$location,categoryS
         );
     }
 
+
     /*显示所有分类*/
     $scope.categoryList = [];
 
@@ -81,16 +82,16 @@ app.controller('blogController',function ($scope,$controller,$location,categoryS
             blogService.findOne(id).success(
                 function (response) {
                     $scope.entity = response;
-                    blogId = response.id;
+                    // blogId = response.id;
                 }
             );
         }
     }
 
     /*博文内容md-->html并显示*/
-    $scope.loadEditormdContent = function () {
+    $scope.loadMarkdownContent = function () {
         $.get("/blog/findBlogToEditormd?id="+$location.search()['id'], function(markdown) {
-            editormd.markdownToHTML("editormd-blog-Content", {
+            editormd.markdownToHTML("content-markdown", {
                 markdown        : markdown ,
                 htmlDecode      : "style,script,iframe",  // you can filter tags decode
                 // tocm            : true,    // Using [TOCM]
