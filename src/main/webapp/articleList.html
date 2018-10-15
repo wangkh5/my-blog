@@ -1,0 +1,42 @@
+<!--内容开始-->
+<div class="post text-center" ng-repeat="entity in list">
+    <h3 class="article-title">
+        <a href="/articleDetail.html#?id={{entity.id}}" class="">
+            <span>{{entity.title}}</span>
+        </a>
+    </h3>
+    <div class="article-top-meta">
+    <span>
+        <a href="#" class="">{{entity.updateTime | date:'yyyy-MM-dd' }}</a>
+    </span>
+    </div>
+    <div id="" class="article-content">
+        <textarea readonly>{{entity.content}}</textarea>
+    </div>
+    <div class="article-footer">
+        <div class="article-meta pull-left">
+            <span><i class="iconfont icon-tag"></i>
+                分类:<a href="#" class="">{{categoryNameList[entity.categoryId]}}</a>
+            </span>
+            <span><i class="iconfont icon-06tags"></i>
+            标签: #<span class="span--tag"><a href="" class="">设计模式</a></span>
+            </span>
+        </div>
+        <div class="article-meta pull-right">
+            <span>
+              <i class="iconfont icon-view"></i>
+                浏览: {{entity.hits}}
+            </span>
+        </div>
+    </div>
+</div>
+<!--页面内容结束-->
+<!-- 分页 -->
+<tm-pagination conf="paginationConf"></tm-pagination>
+
+<!--<nav aria-label="...">-->
+    <!--<ul class="pager">-->
+        <!--<li><a href="#">Previous</a></li>-->
+        <!--<li><a href="#">Next</a></li>-->
+    <!--</ul>-->
+<!--</nav>-->
