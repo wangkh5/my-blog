@@ -1,0 +1,21 @@
+
+<!--天气插件-->
+<div class="blog-weather">
+    <iframe src="//www.seniverse.com/weather/weather.aspx?uid=UD29ABD2F5&cid=CHHA100000&l=&p=SMART&a=1&u=C&s=13&m=0&x=1&d=0&fc=&bgc=2E93D9&bc=&ti=0&in=1&li=" frameborder="0" scrolling="no" width="100%" height="120" allowTransparency="true"></iframe>
+</div>
+<!--博文分类-->
+<div class="widget-common blog-category" ng-controller="categoryController" ng-init="findAll()">
+    <h4>分类</h4>
+    <div class="category-body d_tags">
+        <a href="#" ng-repeat="entity in list">{{entity.name}}</a>
+    </div>
+</div>
+<!--新浪微博-->
+<div class="widget-common blog-weibo" >
+    <div class="weibo-title">
+        <h4>新浪微博</h4>
+    </div>
+    <div class="weibo-content">
+        <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=580&fansRow=2&ptype=1&speed=0&skin=5&isTitle=0&noborder=0&isWeibo=1&isFans=1&uid=2265735733&verifier=66ec82f0&colors=ffffff,ffffff,666666,0082cb,ecfbfd&dpc=1"></iframe>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="blog-article" ng-repeat="entity in list">
+    <h3 ><a href="/blogdetail.html#?id={{entity.id}}">{{entity.title}}</a></h3>
+    <p id="content-html" ng-bind-html="entity.contentHtml"></p>
+    <ul class="list-inline blog-info">
+        <li>作者:<a href="#">王凯华</a></li>
+        <li>时间:<a href="#">{{entity.updateTime | date:'yyyy-MM-dd HH:mm:ss'}}</a></li>
+        <li><a href="#">0条评论</a></li>
+    </ul>
+</div>
