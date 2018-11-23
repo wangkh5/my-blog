@@ -6,11 +6,12 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="live_city" jdbcType="VARCHAR" property="liveCity" />
-    <result column="Occupation" jdbcType="VARCHAR" property="occupation" />
+    <result column="occupation" jdbcType="VARCHAR" property="occupation" />
     <result column="net_name" jdbcType="VARCHAR" property="netName" />
     <result column="profile" jdbcType="VARCHAR" property="profile" />
     <result column="head_img" jdbcType="VARCHAR" property="headImg" />
     <result column="weixin_img" jdbcType="VARCHAR" property="weixinImg" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,7 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, email, live_city, Occupation, net_name, profile, head_img, weixin_img
+    id, name, email, live_city, occupation, net_name, profile, head_img, weixin_img, 
+    birthday
   </sql>
   <select id="selectByExample" parameterType="com.wangkaihua.myblog.entity.TbMeExample" resultMap="BaseResultMap">
     select
@@ -113,13 +115,13 @@
   </delete>
   <insert id="insert" parameterType="com.wangkaihua.myblog.entity.TbMe">
     insert into tb_me (id, name, email, 
-      live_city, Occupation, net_name, 
-      profile, head_img, weixin_img
-      )
+      live_city, occupation, net_name, 
+      profile, head_img, weixin_img, 
+      birthday)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{liveCity,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, #{netName,jdbcType=VARCHAR}, 
-      #{profile,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}, #{weixinImg,jdbcType=VARCHAR}
-      )
+      #{profile,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}, #{weixinImg,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.wangkaihua.myblog.entity.TbMe">
     insert into tb_me
@@ -137,7 +139,7 @@
         live_city,
       </if>
       <if test="occupation != null">
-        Occupation,
+        occupation,
       </if>
       <if test="netName != null">
         net_name,
@@ -150,6 +152,9 @@
       </if>
       <if test="weixinImg != null">
         weixin_img,
+      </if>
+      <if test="birthday != null">
+        birthday,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -180,6 +185,9 @@
       <if test="weixinImg != null">
         #{weixinImg,jdbcType=VARCHAR},
       </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.wangkaihua.myblog.entity.TbMeExample" resultType="java.lang.Long">
@@ -204,7 +212,7 @@
         live_city = #{record.liveCity,jdbcType=VARCHAR},
       </if>
       <if test="record.occupation != null">
-        Occupation = #{record.occupation,jdbcType=VARCHAR},
+        occupation = #{record.occupation,jdbcType=VARCHAR},
       </if>
       <if test="record.netName != null">
         net_name = #{record.netName,jdbcType=VARCHAR},
@@ -218,6 +226,9 @@
       <if test="record.weixinImg != null">
         weixin_img = #{record.weixinImg,jdbcType=VARCHAR},
       </if>
+      <if test="record.birthday != null">
+        birthday = #{record.birthday,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -229,11 +240,12 @@
       name = #{record.name,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
       live_city = #{record.liveCity,jdbcType=VARCHAR},
-      Occupation = #{record.occupation,jdbcType=VARCHAR},
+      occupation = #{record.occupation,jdbcType=VARCHAR},
       net_name = #{record.netName,jdbcType=VARCHAR},
       profile = #{record.profile,jdbcType=VARCHAR},
       head_img = #{record.headImg,jdbcType=VARCHAR},
-      weixin_img = #{record.weixinImg,jdbcType=VARCHAR}
+      weixin_img = #{record.weixinImg,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -251,7 +263,7 @@
         live_city = #{liveCity,jdbcType=VARCHAR},
       </if>
       <if test="occupation != null">
-        Occupation = #{occupation,jdbcType=VARCHAR},
+        occupation = #{occupation,jdbcType=VARCHAR},
       </if>
       <if test="netName != null">
         net_name = #{netName,jdbcType=VARCHAR},
@@ -265,6 +277,9 @@
       <if test="weixinImg != null">
         weixin_img = #{weixinImg,jdbcType=VARCHAR},
       </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -273,11 +288,12 @@
     set name = #{name,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       live_city = #{liveCity,jdbcType=VARCHAR},
-      Occupation = #{occupation,jdbcType=VARCHAR},
+      occupation = #{occupation,jdbcType=VARCHAR},
       net_name = #{netName,jdbcType=VARCHAR},
       profile = #{profile,jdbcType=VARCHAR},
       head_img = #{headImg,jdbcType=VARCHAR},
-      weixin_img = #{weixinImg,jdbcType=VARCHAR}
+      weixin_img = #{weixinImg,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

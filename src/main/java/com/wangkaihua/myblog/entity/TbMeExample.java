@@ -1,6 +1,7 @@
 package com.wangkaihua.myblog.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TbMeExample {
@@ -395,72 +396,72 @@ public class TbMeExample {
         }
 
         public Criteria andOccupationIsNull() {
-            addCriterion("Occupation is null");
+            addCriterion("occupation is null");
             return (Criteria) this;
         }
 
         public Criteria andOccupationIsNotNull() {
-            addCriterion("Occupation is not null");
+            addCriterion("occupation is not null");
             return (Criteria) this;
         }
 
         public Criteria andOccupationEqualTo(String value) {
-            addCriterion("Occupation =", value, "occupation");
+            addCriterion("occupation =", value, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationNotEqualTo(String value) {
-            addCriterion("Occupation <>", value, "occupation");
+            addCriterion("occupation <>", value, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationGreaterThan(String value) {
-            addCriterion("Occupation >", value, "occupation");
+            addCriterion("occupation >", value, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationGreaterThanOrEqualTo(String value) {
-            addCriterion("Occupation >=", value, "occupation");
+            addCriterion("occupation >=", value, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationLessThan(String value) {
-            addCriterion("Occupation <", value, "occupation");
+            addCriterion("occupation <", value, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationLessThanOrEqualTo(String value) {
-            addCriterion("Occupation <=", value, "occupation");
+            addCriterion("occupation <=", value, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationLike(String value) {
-            addCriterion("Occupation like", value, "occupation");
+            addCriterion("occupation like", value, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationNotLike(String value) {
-            addCriterion("Occupation not like", value, "occupation");
+            addCriterion("occupation not like", value, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationIn(List<String> values) {
-            addCriterion("Occupation in", values, "occupation");
+            addCriterion("occupation in", values, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationNotIn(List<String> values) {
-            addCriterion("Occupation not in", values, "occupation");
+            addCriterion("occupation not in", values, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationBetween(String value1, String value2) {
-            addCriterion("Occupation between", value1, value2, "occupation");
+            addCriterion("occupation between", value1, value2, "occupation");
             return (Criteria) this;
         }
 
         public Criteria andOccupationNotBetween(String value1, String value2) {
-            addCriterion("Occupation not between", value1, value2, "occupation");
+            addCriterion("occupation not between", value1, value2, "occupation");
             return (Criteria) this;
         }
 
@@ -741,6 +742,66 @@ public class TbMeExample {
 
         public Criteria andWeixinImgNotBetween(String value1, String value2) {
             addCriterion("weixin_img not between", value1, value2, "weixinImg");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayIsNull() {
+            addCriterion("birthday is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayIsNotNull() {
+            addCriterion("birthday is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayEqualTo(Date value) {
+            addCriterion("birthday =", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayNotEqualTo(Date value) {
+            addCriterion("birthday <>", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayGreaterThan(Date value) {
+            addCriterion("birthday >", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayGreaterThanOrEqualTo(Date value) {
+            addCriterion("birthday >=", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayLessThan(Date value) {
+            addCriterion("birthday <", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayLessThanOrEqualTo(Date value) {
+            addCriterion("birthday <=", value, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayIn(List<Date> values) {
+            addCriterion("birthday in", values, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayNotIn(List<Date> values) {
+            addCriterion("birthday not in", values, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayBetween(Date value1, Date value2) {
+            addCriterion("birthday between", value1, value2, "birthday");
+            return (Criteria) this;
+        }
+
+        public Criteria andBirthdayNotBetween(Date value1, Date value2) {
+            addCriterion("birthday not between", value1, value2, "birthday");
             return (Criteria) this;
         }
     }

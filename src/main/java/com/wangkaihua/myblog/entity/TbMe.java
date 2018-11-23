@@ -1,6 +1,7 @@
 package com.wangkaihua.myblog.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author 
@@ -47,6 +48,11 @@ public class TbMe implements Serializable {
      * 微信名片二维码
      */
     private String weixinImg;
+
+    /**
+     * 生日
+     */
+    private Date birthday;
 
     private static final long serialVersionUID = 1L;
 
@@ -122,6 +128,14 @@ public class TbMe implements Serializable {
         this.weixinImg = weixinImg;
     }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     @Override
     public boolean equals(Object that) {
         if (this == that) {
@@ -142,7 +156,8 @@ public class TbMe implements Serializable {
             && (this.getNetName() == null ? other.getNetName() == null : this.getNetName().equals(other.getNetName()))
             && (this.getProfile() == null ? other.getProfile() == null : this.getProfile().equals(other.getProfile()))
             && (this.getHeadImg() == null ? other.getHeadImg() == null : this.getHeadImg().equals(other.getHeadImg()))
-            && (this.getWeixinImg() == null ? other.getWeixinImg() == null : this.getWeixinImg().equals(other.getWeixinImg()));
+            && (this.getWeixinImg() == null ? other.getWeixinImg() == null : this.getWeixinImg().equals(other.getWeixinImg()))
+            && (this.getBirthday() == null ? other.getBirthday() == null : this.getBirthday().equals(other.getBirthday()));
     }
 
     @Override
@@ -158,6 +173,7 @@ public class TbMe implements Serializable {
         result = prime * result + ((getProfile() == null) ? 0 : getProfile().hashCode());
         result = prime * result + ((getHeadImg() == null) ? 0 : getHeadImg().hashCode());
         result = prime * result + ((getWeixinImg() == null) ? 0 : getWeixinImg().hashCode());
+        result = prime * result + ((getBirthday() == null) ? 0 : getBirthday().hashCode());
         return result;
     }
 
@@ -176,6 +192,7 @@ public class TbMe implements Serializable {
         sb.append(", profile=").append(profile);
         sb.append(", headImg=").append(headImg);
         sb.append(", weixinImg=").append(weixinImg);
+        sb.append(", birthday=").append(birthday);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
