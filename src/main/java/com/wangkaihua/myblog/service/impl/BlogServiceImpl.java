@@ -53,4 +53,10 @@ public class BlogServiceImpl implements BlogService{
         Page<TbBlogWithBLOBs> page = (Page<TbBlogWithBLOBs>) blogMapper.selectByExampleWithBLOBs(null);
        return new PageResult(page.getTotal(),page.getResult());
     }
+
+    @Override
+    public void update(TbBlogWithBLOBs blog) {
+        blog.setUpdateTime(new Date());
+        blogMapper.updateByPrimaryKeyWithBLOBs(blog);
+    }
 }

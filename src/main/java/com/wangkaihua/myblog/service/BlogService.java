@@ -20,4 +20,6 @@ public interface BlogService {
     TbBlogWithBLOBs findOne(int id);
 
     PageResult findPage(int pageNum, int pageSize);
+
+    void update(TbBlogWithBLOBs blog);
 }

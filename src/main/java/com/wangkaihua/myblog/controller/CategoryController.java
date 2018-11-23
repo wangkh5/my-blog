@@ -52,7 +52,7 @@ public class CategoryController {
     }
 
     @RequestMapping("/delete")
-    public Result delete(@RequestBody int [] ids){
+    public Result delete(int [] ids){
         try {
             categoryService.delete(ids);
             return Result.successResult();

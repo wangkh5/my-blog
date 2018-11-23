@@ -39,6 +39,17 @@ public class BlogController {
         }
     }
 
+    @RequestMapping("/update")
+    public Result update(@RequestBody TbBlogWithBLOBs blog){
+        try {
+            blogService.update(blog);
+            return Result.successResult();
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.failResult();
+        }
+    }
+
     @RequestMapping("/delete")
     public Result delete(int [] ids){
         try {
@@ -54,17 +65,9 @@ public class BlogController {
     public PageResult findPage(int pageNum ,int pageSize){
         return blogService.findPage(pageNum,pageSize);
     }
-    @RequestMapping("findOne")
+    @RequestMapping("/findOne")
     public TbBlog findOne(int id){
         return blogService.findOne(id);
     }
 
-    /**
-     * 专门用于Editormd显示博文内容
-     * 解决angular整合editormd后{{entity.content}}无法取到内容的问题
-     * */
-    @RequestMapping("findBlogToEditormd")
-    public String findBlogToEditormd(int id){
-        return blogService.findOne(id).getContent();
-    }
 }
