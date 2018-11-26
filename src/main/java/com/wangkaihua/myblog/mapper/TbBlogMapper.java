@@ -2,7 +2,6 @@ package com.wangkaihua.myblog.mapper;
 
 import com.wangkaihua.myblog.entity.TbBlog;
 import com.wangkaihua.myblog.entity.TbBlogExample;
-import com.wangkaihua.myblog.entity.TbBlogWithBLOBs;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,25 +12,25 @@ public interface TbBlogMapper {
 
     int deleteByPrimaryKey(Integer id);
 
-    int insert(TbBlogWithBLOBs record);
+    int insert(TbBlog record);
 
-    int insertSelective(TbBlogWithBLOBs record);
+    int insertSelective(TbBlog record);
 
-    List<TbBlogWithBLOBs> selectByExampleWithBLOBs(TbBlogExample example);
+    List<TbBlog> selectByExampleWithBLOBs(TbBlogExample example);
 
     List<TbBlog> selectByExample(TbBlogExample example);
 
-    TbBlogWithBLOBs selectByPrimaryKey(Integer id);
+    TbBlog selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") TbBlogWithBLOBs record, @Param("example") TbBlogExample example);
+    int updateByExampleSelective(@Param("record") TbBlog record, @Param("example") TbBlogExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") TbBlogWithBLOBs record, @Param("example") TbBlogExample example);
+    int updateByExampleWithBLOBs(@Param("record") TbBlog record, @Param("example") TbBlogExample example);
 
     int updateByExample(@Param("record") TbBlog record, @Param("example") TbBlogExample example);
 
-    int updateByPrimaryKeySelective(TbBlogWithBLOBs record);
+    int updateByPrimaryKeySelective(TbBlog record);
 
-    int updateByPrimaryKeyWithBLOBs(TbBlogWithBLOBs record);
+    int updateByPrimaryKeyWithBLOBs(TbBlog record);
 
     int updateByPrimaryKey(TbBlog record);
 }

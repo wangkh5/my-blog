@@ -1,7 +1,8 @@
 package com.wangkaihua.myblog.service;
 
 import com.wangkaihua.myblog.common.PageResult;
-import com.wangkaihua.myblog.entity.TbBlogWithBLOBs;
+import com.wangkaihua.myblog.entity.TbBlog;
+import com.wangkaihua.myblog.entity.vo.BlogVO;
 
 import java.util.List;
 
@@ -11,15 +12,15 @@ import java.util.List;
  **/
 public interface BlogService {
 
-    List<TbBlogWithBLOBs> findAll();
+    List<TbBlog> findAll();
 
-    void add(TbBlogWithBLOBs blog);
+    void add(BlogVO blogVO);
 
     void delete(int[] ids);
 
-    TbBlogWithBLOBs findOne(int id);
+    BlogVO findOne(int id);
 
     PageResult findPage(int pageNum, int pageSize);
 
-    void update(TbBlogWithBLOBs blog);
+    void update(BlogVO blogVO);
 }

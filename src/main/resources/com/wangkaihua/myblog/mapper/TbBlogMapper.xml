@@ -9,9 +9,8 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="hits" jdbcType="INTEGER" property="hits" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.wangkaihua.myblog.entity.TbBlogWithBLOBs">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.wangkaihua.myblog.entity.TbBlog">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
-    <result column="content_html" jdbcType="LONGVARCHAR" property="contentHtml" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -75,7 +74,7 @@
     id, title, category_id, create_time, update_time, hits
   </sql>
   <sql id="Blob_Column_List">
-    content, content_html
+    content
   </sql>
   <select id="selectByExampleWithBLOBs" parameterType="com.wangkaihua.myblog.entity.TbBlogExample" resultMap="ResultMapWithBLOBs">
     select
@@ -133,15 +132,15 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.wangkaihua.myblog.entity.TbBlogWithBLOBs">
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="com.wangkaihua.myblog.entity.TbBlog">
     insert into tb_blog (id, title, category_id, 
       create_time, update_time, hits, 
-      content, content_html)
+      content)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{hits,jdbcType=INTEGER}, 
-      #{content,jdbcType=LONGVARCHAR}, #{contentHtml,jdbcType=LONGVARCHAR})
+      #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.wangkaihua.myblog.entity.TbBlogWithBLOBs">
+  <insert id="insertSelective" parameterType="com.wangkaihua.myblog.entity.TbBlog">
     insert into tb_blog
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -165,9 +164,6 @@
       <if test="content != null">
         content,
       </if>
-      <if test="contentHtml != null">
-        content_html,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -190,9 +186,6 @@
       </if>
       <if test="content != null">
         #{content,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="contentHtml != null">
-        #{contentHtml,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -226,9 +219,6 @@
       <if test="record.content != null">
         content = #{record.content,jdbcType=LONGVARCHAR},
       </if>
-      <if test="record.contentHtml != null">
-        content_html = #{record.contentHtml,jdbcType=LONGVARCHAR},
-      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -242,8 +232,7 @@
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       hits = #{record.hits,jdbcType=INTEGER},
-      content = #{record.content,jdbcType=LONGVARCHAR},
-      content_html = #{record.contentHtml,jdbcType=LONGVARCHAR}
+      content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -260,7 +249,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wangkaihua.myblog.entity.TbBlogWithBLOBs">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wangkaihua.myblog.entity.TbBlog">
     update tb_blog
     <set>
       <if test="title != null">
@@ -281,21 +270,17 @@
       <if test="content != null">
         content = #{content,jdbcType=LONGVARCHAR},
       </if>
-      <if test="contentHtml != null">
-        content_html = #{contentHtml,jdbcType=LONGVARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wangkaihua.myblog.entity.TbBlogWithBLOBs">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wangkaihua.myblog.entity.TbBlog">
     update tb_blog
     set title = #{title,jdbcType=VARCHAR},
       category_id = #{categoryId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       hits = #{hits,jdbcType=INTEGER},
-      content = #{content,jdbcType=LONGVARCHAR},
-      content_html = #{contentHtml,jdbcType=LONGVARCHAR}
+      content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.wangkaihua.myblog.entity.TbBlog">

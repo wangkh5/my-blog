@@ -3,7 +3,7 @@ package com.wangkaihua.myblog.controller;
 import com.wangkaihua.myblog.common.PageResult;
 import com.wangkaihua.myblog.common.Result;
 import com.wangkaihua.myblog.entity.TbBlog;
-import com.wangkaihua.myblog.entity.TbBlogWithBLOBs;
+import com.wangkaihua.myblog.entity.vo.BlogVO;
 import com.wangkaihua.myblog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,14 +24,14 @@ public class BlogController {
     BlogService blogService;
 
     @RequestMapping("/findAll")
-    public List<TbBlogWithBLOBs> findAll(){
+    public List<TbBlog> findAll(){
         return blogService.findAll();
     }
 
     @RequestMapping("/add")
-    public Result add(@RequestBody TbBlogWithBLOBs blog){
+    public Result add(@RequestBody BlogVO blogVO){
         try {
-            blogService.add(blog);
+            blogService.add(blogVO);
             return Result.successResult();
         }catch (Exception e){
             e.printStackTrace();
@@ -40,9 +40,9 @@ public class BlogController {
     }
 
     @RequestMapping("/update")
-    public Result update(@RequestBody TbBlogWithBLOBs blog){
+    public Result update(@RequestBody BlogVO blogVO){
         try {
-            blogService.update(blog);
+            blogService.update(blogVO);
             return Result.successResult();
         }catch (Exception e){
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class BlogController {
         return blogService.findPage(pageNum,pageSize);
     }
     @RequestMapping("/findOne")
-    public TbBlog findOne(int id){
+    public BlogVO findOne(int id){
         return blogService.findOne(id);
     }
 

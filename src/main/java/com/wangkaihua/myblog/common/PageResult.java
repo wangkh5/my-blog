@@ -1,6 +1,6 @@
 package com.wangkaihua.myblog.common;
 
-import com.wangkaihua.myblog.entity.TbBlogWithBLOBs;
+import com.wangkaihua.myblog.entity.TbBlog;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,9 +11,9 @@ import java.util.List;
  **/
 public class PageResult implements Serializable{
     private long totalRecord;
-    private List<TbBlogWithBLOBs> rows;
+    private List<TbBlog> rows;
 
-    public PageResult(long totalRecord, List<TbBlogWithBLOBs> rows) {
+    public PageResult(long totalRecord, List<TbBlog> rows) {
         this.totalRecord = totalRecord;
         this.rows = rows;
     }
@@ -26,11 +26,11 @@ public class PageResult implements Serializable{
         this.totalRecord = totalRecord;
     }
 
-    public List<TbBlogWithBLOBs> getRows() {
+    public List<TbBlog> getRows() {
         return rows;
     }
 
-    public void setRows(List<TbBlogWithBLOBs> rows) {
+    public void setRows(List<TbBlog> rows) {
         this.rows = rows;
     }
 }
