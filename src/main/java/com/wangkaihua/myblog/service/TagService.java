@@ -18,4 +18,6 @@ public interface TagService {
     TbTag findOne(int id);
 
     void delete(int[] ids);
+
+    List<String> getBlogTagNameList(List<Integer> tagIdList);
 }

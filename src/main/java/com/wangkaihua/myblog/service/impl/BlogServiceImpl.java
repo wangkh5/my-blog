@@ -4,10 +4,13 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.wangkaihua.myblog.common.PageResult;
 import com.wangkaihua.myblog.entity.TbBlog;
+import com.wangkaihua.myblog.entity.TbBlogExample;
 import com.wangkaihua.myblog.entity.vo.BlogVO;
 import com.wangkaihua.myblog.mapper.TbBlogMapper;
 import com.wangkaihua.myblog.service.BlogService;
 import com.wangkaihua.myblog.service.BlogTagService;
+import com.wangkaihua.myblog.service.CategoryService;
+import com.wangkaihua.myblog.service.TagService;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,11 +31,17 @@ public class BlogServiceImpl implements BlogService{
     @Autowired
     private Mapper dozerBeanMapper;
     @Autowired
+    private TagService tagService;
+    @Autowired
     private BlogTagService blogTagService;
+    @Autowired
+    private CategoryService categoryService;
 
     @Override
     public List<TbBlog> findAll() {
-        return blogMapper.selectByExampleWithBLOBs(null);
+        TbBlogExample blogExample = new TbBlogExample();
+        blogExample.setOrderByClause("update_time DESC");
+        return blogMapper.selectByExample(blogExample);
     }
 
     @Override
@@ -45,7 +54,7 @@ public class BlogServiceImpl implements BlogService{
         blogMapper.insert(blog);
 
         //保存该博文的所有标签
-        blogTagService.insertBlogTagBatch(blogVO.getTags(), blog.getId());
+        blogTagService.insertBlogTagBatch(blogVO.getTagIdList(), blog.getId());
     }
 
     @Override
@@ -59,14 +68,18 @@ public class BlogServiceImpl implements BlogService{
     public BlogVO findOne(int id) {
         TbBlog blog = blogMapper.selectByPrimaryKey(id);
         BlogVO blogVO = dozerBeanMapper.map(blog,BlogVO.class);
-        blogVO.setTags(blogTagService.findTagsIdByBlogId(blog.getId()));
+        blogVO.setTagIdList(blogTagService.findTagsIdByBlogId(blog.getId()));
+        blogVO.setCategoryName(categoryService.findOne(blog.getCategoryId()).getName());
+        blogVO.setTagNameList(tagService.getBlogTagNameList(blogVO.getTagIdList()));
         return blogVO;
     }
 
     @Override
     public PageResult findPage(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum,pageSize);
-        Page<TbBlog> page = (Page<TbBlog>) blogMapper.selectByExampleWithBLOBs(null);
+        TbBlogExample blogExample = new TbBlogExample();
+        blogExample.setOrderByClause("update_time DESC");
+        Page<TbBlog> page = (Page<TbBlog>) blogMapper.selectByExampleWithBLOBs(blogExample);
        return new PageResult(page.getTotal(),page.getResult());
     }
 
@@ -79,6 +92,6 @@ public class BlogServiceImpl implements BlogService{
 
         //更新标签，删除所有再新增
         blogTagService.deleteAllBlogTagByBlogId(blog.getId());
-        blogTagService.insertBlogTagBatch(blogVO.getTags(),blog.getId());
+        blogTagService.insertBlogTagBatch(blogVO.getTagIdList(),blog.getId());
     }
 }

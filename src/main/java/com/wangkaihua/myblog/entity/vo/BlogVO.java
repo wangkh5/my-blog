@@ -9,7 +9,7 @@ import java.util.List;
  * @create 2018-11-26 12:39
  **/
 public class BlogVO implements Serializable{
-    private static final long serialVersionUID = -8052840205331132737L;
+//    private static final long serialVersionUID = -8052840205331132737L;
 
     private Integer id;
 
@@ -22,6 +22,11 @@ public class BlogVO implements Serializable{
      * 分类id
      */
     private Integer categoryId;
+
+    /**
+     * 分类名称
+     */
+    private String categoryName;
 
     /**
      * 浏览量
@@ -40,7 +45,33 @@ public class BlogVO implements Serializable{
     /**
      * 标签
      */
-    private List<Integer> tags;
+    private List<Integer> tagIdList;
+
+    /**
+     * 标签名称
+     */
+    private List<String> tagNameList;
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getTagNameList() {
+        StringBuilder result = new StringBuilder();
+        for (String tagName : tagNameList){
+            result.append(tagName);
+            result.append("、");
+        }
+        return result.toString().substring(0,result.length()-1);
+    }
+
+    public void setTagNameList(List<String> tagNameList) {
+        this.tagNameList = tagNameList;
+    }
 
     public Integer getId() {
         return id;
@@ -98,11 +129,11 @@ public class BlogVO implements Serializable{
         this.updateTime = updateTime;
     }
 
-    public List<Integer> getTags() {
-        return tags;
+    public List<Integer> getTagIdList() {
+        return tagIdList;
     }
 
-    public void setTags(List<Integer> tags) {
-        this.tags = tags;
+    public void setTagIdList(List<Integer> tagIdList) {
+        this.tagIdList = tagIdList;
     }
 }

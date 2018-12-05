@@ -6,6 +6,7 @@ import com.wangkaihua.myblog.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -43,6 +44,15 @@ public class TagServiceImpl implements TagService {
         for(int id : ids){
             tagMapper.deleteByPrimaryKey(id);
         }
+    }
+
+    @Override
+    public List<String> getBlogTagNameList(List<Integer> tagIdList) {
+        List<String> result = new LinkedList<String>();
+        for(Integer tagId : tagIdList){
+            result.add(tagMapper.selectByPrimaryKey(tagId).getName());
+        }
+        return result;
     }
 
 }
