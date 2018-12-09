@@ -8,11 +8,15 @@
     <artifactId>my-blog</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <!--打成war包的项目名称-->
-    <!--项目名存在疑问-->
-    <!--名称应该和application.properties的server.context-path=/blog-->
+
     <build>
         <finalName>myblog</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <!--springboot 必须的父依赖-->
@@ -27,13 +31,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!--springboot热部署-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <!--springboot 整合mybatis启动项-->
@@ -56,19 +53,40 @@
             <version>1.2.5</version>
         </dependency>
 
-        <!--部署到外部容器时使用-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
         <!--用于支持vo、do、po等实体之间的互相转换-->
         <dependency>
             <groupId>net.sf.dozer</groupId>
             <artifactId>dozer</artifactId>
             <version>5.4.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <!--部署到外部容器时使用-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+
+        <!--springboot热部署-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-devtools</artifactId>-->
+        <!--<optional>true</optional>-->
+        <!--</dependency>-->
 
     </dependencies>
 </project>
