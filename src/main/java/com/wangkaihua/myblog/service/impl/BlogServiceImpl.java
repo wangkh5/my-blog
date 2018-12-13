@@ -79,7 +79,7 @@ public class BlogServiceImpl implements BlogService{
         PageHelper.startPage(pageNum,pageSize);
         TbBlogExample blogExample = new TbBlogExample();
         blogExample.setOrderByClause("update_time DESC");
-        Page<TbBlog> page = (Page<TbBlog>) blogMapper.selectByExampleWithBLOBs(blogExample);
+        Page<TbBlog> page = (Page<TbBlog>) blogMapper.selectByExample(blogExample);
        return new PageResult(page.getTotal(),page.getResult());
     }
 

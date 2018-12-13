@@ -9,7 +9,7 @@ import java.util.List;
  * @create 2018-11-26 12:39
  **/
 public class BlogVO implements Serializable{
-//    private static final long serialVersionUID = -8052840205331132737L;
+    private static final long serialVersionUID = -8052840205331132737L;
 
     private Integer id;
 
@@ -37,6 +37,11 @@ public class BlogVO implements Serializable{
      * markdown内容
      */
     private String content;
+
+    /**
+     * 摘要
+     */
+    private String digest;
 
     private Date createTime;
 
@@ -135,5 +140,13 @@ public class BlogVO implements Serializable{
 
     public void setTagIdList(List<Integer> tagIdList) {
         this.tagIdList = tagIdList;
+    }
+
+    public String getDigest() {
+        return digest;
+    }
+
+    public void setDigest(String digest) {
+        this.digest = digest;
     }
 }
